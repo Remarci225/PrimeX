@@ -1,0 +1,2 @@
+# PrimeX
+Villámgyors prímszámkereső
