@@ -1,0 +1,9 @@
+# Ignore executables
+*.out
+*.exe
+
+# Ignore output file
+primes.txt
+
+# Ignore VS Code files
+**/.vscode
