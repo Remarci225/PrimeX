@@ -1,30 +1,64 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
+#define NL 1000000000   // number limit: 1 billion
+#define LL 11           // line limit: 11 characters
 
 int main()
 {
     printf("========\n PrimeX\n========\n\n");
 
-    FILE *fp;
-    fp = fopen("primes.txt", "w+");
+    FILE *fp = fopen("primes.txt", "wb");
     
-    const int N = 1000000001;
-    static int primes[1000000003] = {0};
+    const int N = NL + 3;
+    char* primes = (char*)calloc(N, sizeof(char));
+    char* line = (char*)calloc(LL+1, sizeof(char));
+    int l = 0;
 
-    for (int i = 2; i < N+2; ++i)
+    for (int i = 2; i < 3; ++i)
     {
         switch (primes[i])
         {
             case 0:
-            primes[i] = i;
-            fprintf(fp,"%d\n", i);
-            for (int j = i+i; j < N + 2; j += i)
+            itoa(i, line, 10);
+            
+            while (line[l] != '\0')
+            {
+                ++l;
+            }
+            line[l] = '\n';
+            fwrite(line, sizeof(char), l+1, fp);
+
+            for (int j = i+i; j < N; j += i)
             {
                 primes[j] = 1;
             }
         }
     }
 
+    for (int i = 3; i < N; i += 2)
+    {
+        switch (primes[i])
+        {
+            case 0:
+            itoa(i, line, 10);
+            
+            while (line[l] != '\0')
+            {
+                ++l;
+            }
+            line[l] = '\n';
+            fwrite(line, sizeof(char), l+1, fp);
+
+            for (int j = i+i; j < N; j += i)
+            {
+                primes[j] = 1;
+            }
+        }
+    }
+
+    free(primes);
+    free(line);
     fclose(fp);
 
     printf("Done :D\nCheck your folder for the results");
