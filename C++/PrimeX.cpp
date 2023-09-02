@@ -1,39 +1,56 @@
 #include <iostream>
 #include <charconv>
 #include <fstream>
+#include <string>
 
-using namespace std;
+#define NL 1000000000 // number limit: 1 billion
 
 int main()
 {
-    cout << "========\n PrimeX\n========\n" << endl;
+    std::cout << "========\n PrimeX\n========\n"
+              << std::endl;
 
-    ofstream file;
+    std::ofstream file;
     file.open("primes.txt");
 
-    const int N = 1000000001;
-    static int primes[1000000003] = {0};
-    
-    string buffer;
+    const int N = NL + 2;
+    char *primes = new char[N]{0};
 
-    for (int i = 2; i < N+2; ++i)
+    std::string buffer;
+
+    for (int i = 2; i < 3; ++i)
     {
         switch (primes[i])
         {
-            case 0:
-            primes[i] = i;
-            buffer.append(to_string(i) + "\n");
-            for (int j = i+i; j < N+2; j += i)
+        case 0:
+            file << std::to_string(i) << '\n';
+
+            for (int j = i + i; j < N; j += i)
             {
                 primes[j] = 1;
             }
         }
     }
 
-    file << buffer;
+    for (int i = 3; i < N; i += 2)
+    {
+        switch (primes[i])
+        {
+        case 0:
+            file << std::to_string(i) << '\n';
+
+            for (int j = i + i; j < N; j += i)
+            {
+                primes[j] = 1;
+            }
+        }
+    }
+
+    delete primes;
     file.close();
 
-    cout << "Done :D\nCheck your folder for the results" << endl;
+    std::cout << "Done :D\nCheck your folder for the results\n"
+              << std::endl;
 
     return 0;
 }

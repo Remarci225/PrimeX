@@ -1,2 +1,2 @@
 # PrimeX
-Villámgyors prímszámkereső
+A pretty fast app for searching prime numbers

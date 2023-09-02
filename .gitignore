@@ -2,7 +2,7 @@
 *.out
 *.exe
 
-# Ignore output file
+# Ignore output files
 primes.txt
 
 # Ignore VS Code files
