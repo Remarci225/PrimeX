@@ -18,22 +18,22 @@ public class PrimeX {
         for (int i = 2; i < 3; ++i) {
             if (!primes[i]) {
                 bufferedWriter.write("" + i);
-                    bufferedWriter.newLine();
+                bufferedWriter.newLine();
 
-                    for (int j = i; j < N; j += i) {
-                        primes[j] = true;
-                    }
+                for (int j = i; j < N; j += i) {
+                    primes[j] = true;
+                }
             }
         }
 
         for (int i = 3; i < N; i += 2) {
             if (!primes[i]) {
                 bufferedWriter.write("" + i);
-                    bufferedWriter.newLine();
+                bufferedWriter.newLine();
 
-                    for (int j = i; j < N; j += i) {
-                        primes[j] = true;
-                    }
+                for (int j = i; j < N; j += i) {
+                    primes[j] = true;
+                }
             }
         }
 

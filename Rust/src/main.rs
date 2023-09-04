@@ -15,20 +15,20 @@ fn main() {
     for i in 2..3 {
         if !primes[i] {
             write!(buf_writer, "{}\n", i).expect("Couldn\'t write to \"primes.txt\"");
-        }
 
-        for j in (i..N).step_by(i) {
-            primes[j] = true;
+            for j in (i..N).step_by(i) {
+                primes[j] = true;
+            }
         }
     }
 
     for i in (3..N).step_by(2) {
         if !primes[i] {
             write!(buf_writer, "{}\n", i).expect("Couldn\'t write to \"primes.txt\"");
-        }
 
-        for j in (i..N).step_by(i) {
-            primes[j] = true;
+            for j in (i..N).step_by(i) {
+                primes[j] = true;
+            }
         }
     }
     

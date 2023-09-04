@@ -11,12 +11,12 @@ i <- 2
 while (i < 3) {
     if (primes[i]) {
         write(i, file = file_connection, append = TRUE, sep = "\n")
-    }
 
-    j <- i
-    while (j < N) {
-        primes[j] <- FALSE
-        j <- j + i
+        j <- i
+        while (j < N) {
+            primes[j] <- FALSE
+            j <- j + i
+        }
     }
 
     i <- i + 1
@@ -26,12 +26,12 @@ i <- 3
 while (i < N) {
     if (primes[i]) {
         write(i, file = file_connection, append = TRUE, sep = "\n")
-    }
 
-    j <- i
-    while (j < N) {
-        primes[j] <- FALSE
-        j <- j + i
+        j <- i
+        while (j < N) {
+            primes[j] <- FALSE
+            j <- j + i
+        }
     }
 
     i <- i + 2
