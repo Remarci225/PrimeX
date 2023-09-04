@@ -1,5 +1,4 @@
 #include <iostream>
-#include <charconv>
 #include <fstream>
 #include <string>
 
@@ -15,8 +14,6 @@ int main()
 
     const int N = NL + 2;
     char *primes = new char[N]{0};
-
-    std::string buffer;
 
     for (int i = 2; i < 3; ++i)
     {

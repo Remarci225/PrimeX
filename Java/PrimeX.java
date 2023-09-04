@@ -37,7 +37,6 @@ public class PrimeX {
             }
         }
 
-        primes = null;
         bufferedWriter.close();
 
         System.out.println("Done :D\nCheck your folder for the results\n");
