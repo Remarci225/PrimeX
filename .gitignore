@@ -1,9 +1,8 @@
-# Ignore executables
-*.out
-*.exe
-
 # Ignore output files
 primes.txt
+*.out
+*.exe
+target
 
 # Ignore VS Code files
-**/.vscode
+.vscode

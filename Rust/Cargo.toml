@@ -1,0 +1,19 @@
+[package]
+name = "prime_x"
+version = "1.0.0"
+authors = ["Remarci225"]
+description = "A pretty fast app for searching prime numbers"
+edition = "2021"
+
+[profile.dev]
+opt-level = 3
+debug = "full"
+[profile.release]
+opt-level = 3
+debug = "none"
+[profile.test]
+opt-level = 3
+debug = "full"
+[profile.bench]
+opt-level = 3
+debug = "none"

@@ -13,31 +13,27 @@ public class PrimeX {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("primes.txt"));
 
         final int N = NL + 2;
-        byte[] primes = new byte[N];
+        boolean[] primes = new boolean[N];
 
         for (int i = 2; i < 3; ++i) {
-            switch (primes[i]) {
-                case 0:
-                    bufferedWriter.write("" + i);
+            if (!primes[i]) {
+                bufferedWriter.write("" + i);
                     bufferedWriter.newLine();
 
                     for (int j = i; j < N; j += i) {
-                        primes[j] = 1;
+                        primes[j] = true;
                     }
-                    break;
             }
         }
 
         for (int i = 3; i < N; i += 2) {
-            switch (primes[i]) {
-                case 0:
-                    bufferedWriter.write("" + i);
+            if (!primes[i]) {
+                bufferedWriter.write("" + i);
                     bufferedWriter.newLine();
 
                     for (int j = i; j < N; j += i) {
-                        primes[j] = 1;
+                        primes[j] = true;
                     }
-                    break;
             }
         }
 
